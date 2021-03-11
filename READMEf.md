@@ -30,9 +30,12 @@ Products Path: `/products`
 Auth Details:
 
 ```
+username: admin
 email: admin@admin.com
 password: Pass1234
 ```
+
+(in the documentation for strapi you can use either username or email as identifier.)
 
 ### Packages to Install:
 
@@ -1280,3 +1283,77 @@ Congratulations, you have now learned to authenticate yourself using a JWT. You 
 Next Lesson will cover the Create (post) and Delete (delete) operations
 
 ## Lesson 3, adding and deleting
+
+The previous lessons we have done we have covered most of the new logic, but specifically for CRUD we have covered the R and U.
+
+Now to complete our CRUD app we need to add the C and the D.
+
+### Add Product / Item
+
+To start off create a new page and name it `AddProduct.js`.
+
+We need pretty much the same stuff as we did for EditProduct, only difference is instead of using the PUT method, we will use POST.
+
+This is because we don't want to update an existing ID so we have nothing to replace, rather we want to create something new.
+
+The rest can be exactly the same, except im changing the useState value for error, and exchanging the PUT method for POST (typed lowercase).
+
+```jsx
+const [postError, setPostError] = useState(null);
+```
+
+### TASK:
+
+- Make a route to your newly created page.
+
+- Protect it (any unauthenticated user should be sent to /login)
+
+- Add it as a link that is ONLY shown to users who are AUTHENTICATED.
+
+- Display the posted Item to the user AFTER the post is successful.
+
+- Once you have completed this task - add route protection to the EditProduct page as well.
+
+### Delete Item / Product
+
+To complete this step we will simply add some new functionality to our products page.
+
+Let's start by creating our delete logic:
+
+```jsx
+const deleteProduct = async (id, productTitle) => {
+  try {
+    const response = await http.delete(`${PRODUCTS_PATH}/${id}`);
+    console.log(response);
+    alert(`${productTitle} has been deleted.`);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    setRender(render + 1);
+  }
+};
+```
+
+Those of you with a keen eye for details, will see three main differences to what we have done before.
+
+- We are using the delete() method, instead of get(), put() or post().
+
+- We are not writing the response or the response data anywhere, we are simply putting out an alert letting the user know the product has been deleted.
+
+- We are incrementing a new state variable in the finally{} codeblock.
+
+### TASK
+
+- Add the new state varable that corresponds with our code above (you can name it whatever you want, it does not have to be render.)
+
+- Modify the output from the map() method to have a new button that has an onclick that runs our new deleteProduct() function.
+
+Good Luck!
+
+## !Module Assignment!
+
+- Style your frontend, (however you'd like, but make it look nice).
+
+- Add two new products (instruments) to the API through your frontend (add your name to the title).
+
+- Fix any breaking bugs before delivering a link to your repo in moodle.

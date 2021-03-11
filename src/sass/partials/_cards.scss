@@ -1,0 +1,50 @@
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2rem;
+
+    &__item {
+        width: 20%;
+        margin: 1rem;
+        padding: 1rem;
+        border: 3px solid rgb(24, 0, 120);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__item-title {
+        background-color: rgb(24, 0, 120);
+        text-align: center;
+        color: white;
+        padding: 1rem;
+        font-size: 12px;
+        margin: 0;
+        border-radius: 50px;
+        margin-bottom: 1rem;
+    }
+
+    &__item-price {
+        font-size: 14px;
+    }
+
+    &__item-desc {
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    &__item-btn {
+        border: 2px solid rgb(24, 0, 120);
+        background-color: #fff;
+        border-radius: 50px;
+        padding: 0.5rem;
+
+        &:hover {
+            background-color: rgb(24, 0, 120);
+            color: #fff;
+        }
+    }
+}

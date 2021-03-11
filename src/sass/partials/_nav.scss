@@ -1,0 +1,26 @@
+.nav {
+    margin: 2rem;
+
+    &__link {
+        text-decoration: none;
+        padding: 0 0.5rem;
+        margin: 1rem 1rem;
+        border-bottom: 3px solid rgb(96, 66, 215);
+    }
+
+    &__flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__logout {
+        background-color: rgb(24, 0, 120);
+        color: white;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        border: none;
+    }
+
+
+}

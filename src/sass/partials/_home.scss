@@ -1,0 +1,18 @@
+.home {
+    text-transform: uppercase;
+    color: rgb(88, 174, 255);
+    font-size: 100px;
+    text-align: center;
+
+    &__desc {
+        background-color:  rgb(158, 208, 255);
+        text-align: center;
+        height: 200px;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 60px;
+    }
+}
