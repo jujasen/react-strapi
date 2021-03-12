@@ -9,7 +9,7 @@ function Products() {
     const [auth] = useContext(AuthContext);
     const history = useHistory();
     const [products, setProducts] = useState(null);
-    const [render, setRender] = useState(null);
+    const [render, setRender] = useState(0);
     const http = useAxios();
 
     if (!auth) {
@@ -27,7 +27,7 @@ function Products() {
             }
         };
         getProducts();
-    }, []);
+    }, [render]);
 
     const deleteProduct = async (id, productTitle) => {
         try {

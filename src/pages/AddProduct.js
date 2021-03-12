@@ -14,6 +14,7 @@ const AddProduct = () => {
     const [submitting, setSubmitting] = useState(false);
     const [postError, setPostError] = useState(null);    
     const [success, setSuccess] = useState(null);
+    const [product, setProduct] = useState(null);
 
     if (!auth) {
         history.push('/login');
@@ -42,6 +43,7 @@ const AddProduct = () => {
             const response = await http.post(`${PRODUCTS_PATH}`, data);
             console.log('response', response.data);
             setSuccess(true);
+            setProduct(response.data);
         } catch (error) {
             console.log('error', error);
             setPostError(error.toString());
@@ -98,7 +100,7 @@ const AddProduct = () => {
                     <button type='submit'>{submitting ? 'Adding ...' : 'Add'}</button>
                 </fieldset>
             </form>
-            {success ? <p>Listing was added</p> : null}
+            {success ? <p>{product?.title} was added</p> : null}
         </>
     );
 };
