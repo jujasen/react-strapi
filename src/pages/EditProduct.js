@@ -73,55 +73,57 @@ const EditProduct = () => {
     return (
         <>
             <h1>Edit Product</h1>
-            <Item {...product} />
-            <form onSubmit={handleSubmit(onSubmit)}>
-                {updateError && <p>{updateError}</p>}
-                <fieldset disabled={submitting}>
-                    <div>
-                        <input
-                            name='title'
-                            placeholder='Title'
-                            ref={register}
-                            defaultValue={product.title}
-                        />
-                        {errors.title && <p>{errors.title.message}</p>}
-                    </div>
+            <div className="flex">
+                <Item {...product} />
+                <form className="form" onSubmit={handleSubmit(onSubmit)}>
+                    {updateError && <p>{updateError}</p>}
+                    <fieldset disabled={submitting}>
+                        <div>
+                            <input
+                                name='title'
+                                placeholder='Title'
+                                ref={register}
+                                defaultValue={product.title}
+                            />
+                            {errors.title && <p>{errors.title.message}</p>}
+                        </div>
 
-                    <div>
-                        <input
-                            name='price'
-                            placeholder='Price'
-                            defaultValue={product.price}
-                            ref={register}
-                            type='number'
-                        />
-                        {errors.price && <p>{errors.price.message}</p>}
-                    </div>
-                    <div>
-                        <textarea
-                            name='description'
-                            placeholder='Description'
-                            defaultValue={product.description}
-                            ref={register}
-                            type='text'
-                        />
-                        {errors.description && <p>{errors.description.message}</p>}
-                    </div>
-                    <div>
-                        <input
-                            name='image_url'
-                            placeholder='Image URL'
-                            ref={register}
-                            defaultValue={product.image_url}
-                            type='text'
-                        />
-                        {errors.image_url && <p>{errors.image_url.message}</p>}
-                    </div>
+                        <div>
+                            <input
+                                name='price'
+                                placeholder='Price'
+                                defaultValue={product.price}
+                                ref={register}
+                                type='number'
+                            />
+                            {errors.price && <p>{errors.price.message}</p>}
+                        </div>
+                        <div>
+                            <textarea
+                                name='description'
+                                placeholder='Description'
+                                defaultValue={product.description}
+                                ref={register}
+                                type='text'
+                            />
+                            {errors.description && <p>{errors.description.message}</p>}
+                        </div>
+                        <div>
+                            <input
+                                name='image_url'
+                                placeholder='Image URL'
+                                ref={register}
+                                defaultValue={product.image_url}
+                                type='text'
+                            />
+                            {errors.image_url && <p>{errors.image_url.message}</p>}
+                        </div>
 
-                    <button type='submit'>{submitting ? 'Updating ...' : 'Update'}</button>
-                </fieldset>
-            </form>
-            {success ? <p>Listing of {product.title} was updated</p> : null}
+                        <button type='submit'>{submitting ? 'Updating ...' : 'Update'}</button>
+                        {success ? <p>Listing of {product.title} was updated</p> : null}
+                    </fieldset>
+                </form>
+            </div>
         </>
     );
 };

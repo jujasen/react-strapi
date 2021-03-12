@@ -40,7 +40,7 @@ const Login = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className="form" onSubmit={handleSubmit(onSubmit)}>
                 {loginError && <p>{loginError}</p>}
                 <fieldset disabled={submitting}>
                     <div>

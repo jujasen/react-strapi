@@ -10,3 +10,23 @@ a {
     font-weight: 600;
     color: rgb(24, 0, 120);
 }
+
+.flex {
+    display: flex;
+    justify-content: center;
+
+    .form {
+        margin: 1rem;
+
+        fieldset {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        textarea {
+            height: 300px;
+        }
+    }
+}
